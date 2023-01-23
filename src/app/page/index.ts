@@ -1,0 +1,5 @@
+export * from "./page-routing.module"
+export * from "./page.component"
+export * from "./page.module"
+export * from "./header/header.component"
+export * from "../index"
