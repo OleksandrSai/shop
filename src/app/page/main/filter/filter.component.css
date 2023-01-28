@@ -1,0 +1,37 @@
+.filter{
+  display: flex;
+  padding: 15px;
+  background-color: lightskyblue;
+  border-radius: 50px;
+  margin-top: 40px;
+  height: 450px;
+  flex-direction: column;
+}
+.flter__title{
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+
+
+}
+.filter__categoria{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+.categoria__name{
+  display: flex;
+  flex-direction: column;
+}
+.categoria__check{
+  display: flex;
+  flex-direction: column;
+
+}
+.fileter__sort{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}

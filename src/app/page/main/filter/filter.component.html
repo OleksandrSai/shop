@@ -1,0 +1,30 @@
+<div class="filter">
+  <div>
+    <span class="flter__title">Фільтр</span>
+  </div>
+  <div class="fileter__sort">
+    <div class="sort__name">По ціні</div>
+    <select #selects (change)="sort(selects.value)">
+      <option [disabled]="true" value="all"></option>
+      <option value="min">Від дешевих</option>
+      <option value="max">Від дорогих</option>
+    </select>
+  </div>
+  <div class="filter__categoria">
+    <div class="categoria__name">
+      <label>Жіночий одяг</label>
+      <label>Чоловічий одяг</label>
+      <label>Біжутерія</label>
+      <label>Електроніка</label>
+    </div>
+    <div class="categoria__sort">
+
+    </div>
+    <div class="categoria__check">
+      <input  type="checkbox" value="men's clothing" #filter (click)="FindCart()">
+      <input type="checkbox" value="women's clothing" #filter (click)="FindCart()">
+      <input type="checkbox" value="jewelery" #filter (click)="FindCart()">
+      <input type="checkbox" value="electronics" #filter (click)="FindCart()">
+    </div>
+  </div>
+</div>

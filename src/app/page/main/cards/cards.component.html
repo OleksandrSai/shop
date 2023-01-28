@@ -1,14 +1,22 @@
-<section class="allProduct">
-  <div class="product" *ngFor="let card of Cards">
-    <img src="{{card.image}}" alt="" height="150px">
-    <br>
-    <span>Рейтинг</span>
-    <hr>
-    <p class="product__title">{{card.title}}</p>
-    <hr>
-    <span class="product__price">{{card.price | currency}}</span>
-    <hr>
-    <button>Купить</button>
-
+<div class="flex">
+  <div class="first-block">
+    <app-autorization></app-autorization>
+    <app-filter></app-filter>
   </div>
-</section>
+  <div class="second-block">
+    <section class="allProduct">
+      <div class="product" *ngFor="let card of Cards">
+        <img src="{{card.image}}" alt="">
+        <br>
+        <span>Рейтинг</span>
+        <hr>
+        <p class="product__title">{{card.title}}</p>
+        <hr>
+        <span class="product__price">{{card.price | currency}}</span>
+        <hr>
+        <button>Купить</button>
+
+      </div>
+    </section>
+  </div>
+</div>

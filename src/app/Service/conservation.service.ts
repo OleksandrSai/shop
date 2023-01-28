@@ -9,7 +9,21 @@ export class ConservationService {
 
   DataArray: DataArray[] | undefined;
 
+  selectedArray:DataArray[] | undefined;
+
+  sortPrice:string | undefined;
+
   SaveArray(item: DataArray[]) {
     this.DataArray = item;
+    console.log(this.DataArray)
   }
+
+  FindNeed(name:string[]){
+    this.selectedArray = []
+    name.forEach((name:string)=> (this.DataArray as DataArray[]).filter((elem)=> {
+      if(elem.category == name){
+        (this.selectedArray as DataArray[]).push(elem)
+      }}))
+  }
+
 }

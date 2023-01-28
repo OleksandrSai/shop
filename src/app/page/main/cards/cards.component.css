@@ -5,12 +5,25 @@ section{
 }
 .product{
   width: 200px;
-  margin: 50px;
   display: flex;
+  margin: 0px 40px 40px 0px;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   padding: 8px;
   border: 2px solid black;
   border-radius: 35px;
+}
+img{
+  height: 150px;
+  width: 160px;
+}
+.first-block{
+  display: flex;
+  flex-direction: column;
+  margin: 0px 40px 40px 0px;
+}
+.flex{
+  display: flex;
+
 }
