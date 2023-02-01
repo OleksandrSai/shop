@@ -1,0 +1,28 @@
+.autorizated{
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.autorizated__greeting{
+  display: flex;
+  justify-content: center;
+}
+
+.autorizated__logout{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+button{
+  width: 150px;
+  cursor: pointer;
+}
+ul{
+  list-style: none;
+  font-size: 15px;
+  padding: 1px;
+}
+ul > li{
+font-style: inherit;
+}

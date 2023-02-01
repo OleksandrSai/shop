@@ -1,20 +1,36 @@
 <div class="autorization">
+  <app-authorized *ngIf="auth"></app-authorized>
+  <div class="first" *ngIf="!auth">
+
   <span class="autorization__title">Авторизація</span>
 
-  <div class="autorization__box box">
-  <div class="box__name">
-    <label>Логін:</label>
-    <label>Пароль:</label>
-  </div>
-  <div class="box__input">
-    <input type="text">
-    <input type="password">
-  </div>
-</div>
-<div class="autorization__button">
-  <button>Войти</button>
-</div>
-  <div class="autorization__erorr"></div>
+<p *ngIf="error" class="autorization__error">{{error}}</p>
 
-  <span class="autorization__help">Пароли для входа</span>
+  <form [formGroup]="autorization"
+  (ngSubmit)="authUser(this.autorization.controls.login.value, this.autorization.controls.pass.value)">
+    <div class="autorization__box box">
+      <div class="box__name">
+        <label>Емейл:</label>
+        <label>Пароль:</label>
+      </div>
+
+      <div class="box__input">
+        <input type="text" formControlName="login">
+        <input type="password" formControlName="pass">
+      </div>
+    </div>
+
+    <div class="autorization__button">
+     <input type="submit" value="Войти">
+    </div>
+  </form>
+
+
+  <div class="autorization__erorr">
+
+  </div>
+
+  <span class="autorization__help">Паролі для входа</span>
+
+
 </div>

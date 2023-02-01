@@ -10,12 +10,12 @@
 .autorization__title{
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
 }
 .autorization__box{
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
+  margin-top: 15px;
 
 
 }
@@ -28,6 +28,7 @@
   display: flex;
   justify-content: center;
   font-size: 12px;
+  cursor: pointer;
 }
 .autorization__erorr{
   display: flex;
@@ -39,5 +40,14 @@
 }
 .autorization__button> button{
   width: 150px;
+  cursor: pointer;
 }
-
+.autorization__error{
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-size: 15px;
+}
+.autorization_error::first-letter{
+  text-transform: uppercase;
+}

@@ -1,0 +1,16 @@
+<div class="autorizated">
+  <div class="autorizated__greeting" *ngFor="let fullname of user">
+    Привіт,  {{fullname.name.firstname | titlecase}} {{fullname.name.lastname | titlecase}}
+  </div>
+  <div class="autorizated__profile link">
+    <ul>
+      <li>Профіль</li>
+      <li>Корзина</li>
+      <li>Адмін панель</li>
+      <li>Лінк</li>
+    </ul>
+  </div>
+  <div class="autorizated__logout">
+<button  (click)="LogOut()">Вийти</button>
+</div>
+</div>

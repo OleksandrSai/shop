@@ -18,6 +18,7 @@
   list-style: none;
   flex-direction: row;
   position: relative;
+  cursor: pointer;
 }
 .header__menu > li {
   padding-left: 15px;
