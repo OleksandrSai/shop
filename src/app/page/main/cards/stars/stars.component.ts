@@ -33,13 +33,10 @@ export class StarsComponent {
 
   ngAfterViewInit() {
     this.Stars();
-    console.log((this.active as ElementRef).nativeElement.style.width);
   }
 
   Stars() {
-    (
-      this.active as ElementRef
-    ).nativeElement.style.width = `${this.RatingProcent}%`;
+    (this.active as ElementRef).nativeElement.style.width = `${this.RatingProcent}%`;
   }
 
   Place(value: any) {
@@ -50,14 +47,14 @@ export class StarsComponent {
   }
 
   RePlace() {
-    if (!this.flag) {
+    if(!this.flag){
       this.RatingProcent = (100 * (this.rating as number)) / 5;
     }
     this.Stars();
   }
 
   newGrade(value: any) {
-    if (!this.flag) {
+    if(!this.flag){
       this.RatingProcent = (100 * value) / 5;
       this.Stars();
       this.flag = true;

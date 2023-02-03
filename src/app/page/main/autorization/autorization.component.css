@@ -1,8 +1,8 @@
 .autorization{
-  width: 300px;
+  width: 250px;
   height: 200px;
   background-color: lightskyblue;
-  border-radius: 45px;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
   padding: 10px;

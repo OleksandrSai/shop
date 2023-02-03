@@ -1,26 +1,22 @@
-<div class="flex">
-  <div class="first-block">
-    <app-autorization></app-autorization>
-    <app-filter></app-filter>
-  </div>
-  <div class="second-block">
-    <section class="allProduct">
-      <div class="product" *ngFor="let card of Cards">
-        <img src="{{card.image}}" alt="">
-        <br>
-        <br>
-        <br>
-        <app-stars [star]="card.rating.rate"></app-stars>
-        <br>
-        <br>
-        <br>
-        <p class="product__title">{{card.title}}</p>
-        <hr>
-        <span class="product__price">{{card.price | currency}}</span>
-        <hr>
-        <button>Купить</button>
-
+<div class="firstPage">
+  <div class="firstPage__blocks blocks">
+    <div class="blocks__navigation">
+      <app-autorization></app-autorization>
+      <app-filter></app-filter>
+    </div>
+    <section>
+      <div class="blocks__product product">
+        <div class="product__card card" *ngFor="let card of Cards">
+          <div class="card__img"><img src="{{card.image}}" alt=""></div>
+          <div class="card__raiting">
+          <app-stars [star]="card.rating.rate"></app-stars>
+        </div>
+          <div class="card__title">{{card.title}}</div>
+          <div class="card__price">{{card.price | currency}}</div>
+          <button class="card__button">Купити</button>
+        </div>
       </div>
     </section>
   </div>
+
 </div>
