@@ -5,6 +5,7 @@ import { MainRoutingModule } from './main-routing.module';
 import {AutorizationComponent, FilterComponent, CardsComponent} from "./index"
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthorizedComponent } from './authorized/authorized.component';
+import { StarsComponent } from './cards/stars/stars.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { AuthorizedComponent } from './authorized/authorized.component';
     CardsComponent,
     FilterComponent,
     AutorizationComponent,
-    AuthorizedComponent
+    AuthorizedComponent,
+    StarsComponent
   ],
   imports: [
     CommonModule,

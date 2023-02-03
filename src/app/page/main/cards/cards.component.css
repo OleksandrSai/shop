@@ -4,7 +4,7 @@ section{
   justify-content: center;
 }
 .product{
-  width: 200px;
+  width: 280px;
   display: flex;
   margin: 0px 40px 40px 0px;
   flex-direction: column;
@@ -26,4 +26,7 @@ img{
 .flex{
   display: flex;
 
+}
+.sssss{
+display: block;
 }

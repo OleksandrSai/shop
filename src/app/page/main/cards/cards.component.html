@@ -8,8 +8,12 @@
       <div class="product" *ngFor="let card of Cards">
         <img src="{{card.image}}" alt="">
         <br>
-        <span>Рейтинг</span>
-        <hr>
+        <br>
+        <br>
+        <app-stars [star]="card.rating.rate"></app-stars>
+        <br>
+        <br>
+        <br>
         <p class="product__title">{{card.title}}</p>
         <hr>
         <span class="product__price">{{card.price | currency}}</span>

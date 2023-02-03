@@ -3,7 +3,10 @@ export interface DataArray{
   description: string;
   image: string;
   price: number;
-  rating: object;
+  rating: {
+    count: number,
+    rate: number
+  }
   title: string;
   id: number;
 }

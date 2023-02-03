@@ -1,0 +1,28 @@
+<div class="rating">
+  <div class="rating__body">
+  <div class="rating__active" #active></div>
+  <div class="rating__items" (mouseleave)="RePlace()">
+    <input #star1 (mouseenter)="Place(star1.value)"
+                  (click)="newGrade(star1.value)"
+     name="rating" type="radio" value="1" class="rating__item">
+    <input #star2  (mouseenter)="Place(star2.value)"
+                    (click)="newGrade(star2.value)"
+
+     name="rating" type="radio" value="2" class="rating__item">
+    <input #star3 (mouseenter)="Place(star3.value)"
+                    (click)="newGrade(star3.value)"
+
+    name="rating" type="radio" value="3" class="rating__item">
+    <input #star4 (mouseenter)="Place(star4.value)"
+                    (click)="newGrade(star4.value)"
+
+    name="rating" type="radio" value="4" class="rating__item">
+    <input #star5 (mouseenter)="Place(star5.value)"
+                    (click)="newGrade(star5.value)"
+
+    name="rating" type="radio" value="5" class="rating__item">
+  </div>
+</div>
+<div class="rating__value">{{rating}}</div>
+
+</div>
