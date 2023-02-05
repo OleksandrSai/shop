@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {PageRoutingModule, PageComponent, HeaderComponent } from "./index";
 import { SearchComponent } from './header/search/search.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,7 +13,9 @@ import { SearchComponent } from './header/search/search.component'
   ],
   imports: [
     CommonModule,
-    PageRoutingModule
+    PageRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
     PageComponent

@@ -1,0 +1,12 @@
+:host{
+  width: 350px;
+  background-color: white;
+  border: 3px solid lightblue;
+  color: black;
+  left: 1220px;
+}
+.status{
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}

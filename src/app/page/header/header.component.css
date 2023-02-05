@@ -64,4 +64,10 @@ display: block;
 
 .header__search__name{
   margin-right: 8px;
+  position: relative;
+}
+.header__search__block{
+  position: absolute;
+  top: 90px;
+  z-index: 2;
 }

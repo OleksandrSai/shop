@@ -24,3 +24,7 @@ export interface Users{
   username: string;
   __v: number;
 }
+
+export interface My{
+  title:string
+}
