@@ -3,10 +3,20 @@
   background-color: white;
   border: 3px solid lightblue;
   color: black;
-  left: 1220px;
 }
 .status{
   display: flex;
   justify-content: center;
-  padding-top: 15px;
+  padding-top: 40px;
 }
+.seacrh__item{
+  margin-bottom: 5px;
+  border-bottom: black 1px dashed;
+}
+.seacrh{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1px;
+}
+

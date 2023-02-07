@@ -1,4 +1,5 @@
 <div class="status" *ngIf="!serchArray">Зачекайте, виконую пошук</div>
+<div class="status" *ngIf="nothingFound">Нічого не знайдено</div>
 <ul class="seacrh">
   <li class="seacrh__item" *ngFor="let key of serchArray">{{key.title}}</li>
 

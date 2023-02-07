@@ -1,5 +1,3 @@
-import { from } from "rxjs"
-
 export * from "./page.component"
 export * from "./header/header.component"
 export * from "./main/index"

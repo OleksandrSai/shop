@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Observable, Unsubscribable } from 'rxjs';
-import { ServiceHTTPService } from '../..';
+import { Observable, Subscriber, Unsubscribable } from 'rxjs';
+import { SearchService } from 'src/app/Service/search.service';
 import { DataArray } from '../..';
+
 
 @Component({
   selector: 'app-search',
@@ -10,23 +11,28 @@ import { DataArray } from '../..';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private service: ServiceHTTPService){}
-
-  @Input('inInput') inInput:string = ""
+  constructor(private serviceSearch:SearchService,
+     ){}
+  subscription:Subscriber<any> | undefined
 
   serchArray:DataArray[] | undefined;
-  subscription:any;
+
+  nothingFound:boolean = false;
+
+
+  @Input('inInput') inInput:string = ""
 
   ngOnInit(){
     this.needSeacrh()
   }
 
-
-
   needSeacrh(){
-      this.subscription = this.service.GetDataTitle().subscribe(((res:any)=> this.serchArray = res),
-      ((err:any)=> console.log(err))),
-      ((comp:any)=> console.log("ddd"))
+      this.subscription = this.serviceSearch.GetDataTitle().subscribe(((res:any)=> {
+         this.serchArray = res;
+         if(this.serchArray?.length === 0)this.nothingFound = true;
+         else this.nothingFound = false;
+        }))
+
 
   }
 

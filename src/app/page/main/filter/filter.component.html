@@ -5,7 +5,7 @@
   <div class="fileter__sort">
     <div class="sort__name">По ціні</div>
     <select #selects (change)="sort(selects.value)">
-      <option [disabled]="true" value="all"></option>
+      <option value="all">Без фільтру</option>
       <option value="min">Від дешевих</option>
       <option value="max">Від дорогих</option>
     </select>

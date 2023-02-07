@@ -14,13 +14,11 @@ export class CardsComponent implements OnInit {
   Cards:DataArray[] | undefined;
 
   ngOnInit(){
-    if(!this.conservation.DataArray) this.fillingСards();
-    if(this.conservation.DataArray) this.Cards = this.conservation.DataArray
+    this.cashCart()
   }
 
   ngDoCheck(){
-    if(this.conservation.selectedArray) this.Cards = this.conservation.selectedArray;
-    if(!this.conservation.selectedArray?.length) this.Cards = this.conservation.DataArray;
+    this.checkSort()
     this.sortCards()
   }
 
@@ -31,12 +29,14 @@ export class CardsComponent implements OnInit {
       this.conservation.SaveArray(this.Cards as DataArray[])
       })
     }
-
   }
 
   sortCards(){
     switch (this.conservation.sortPrice) {
-      case undefined:
+      case "all":
+        let all:DataArray[] | undefined;
+        all = this.Cards?.sort((a,b)=> a.id - b.id)
+        this.Cards = (all as DataArray[])
         break;
       case  "max":
         let max:DataArray[] | undefined;
@@ -50,6 +50,23 @@ export class CardsComponent implements OnInit {
         break;
     }
   }
+
+  checkSort(){
+    if(this.conservation.selectedArray) this.Cards = this.conservation.selectedArray;
+    if(!this.conservation.selectedArray?.length) this.Cards = this.conservation.DataArray;
+  }
+
+  cashCart(){
+    if(!this.conservation.DataArray) this.fillingСards();
+    if(this.conservation.DataArray == undefined){
+      this.Cards = this.conservation.DataArray
+    }
+  }
+
+  toProduct(){
+    console.log("ddd")
+  }
+
 
 
 
