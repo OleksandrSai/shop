@@ -1,15 +1,9 @@
-import {
-  Component,
-  ElementRef,
-  Input,
-  Renderer2,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-stars',
   templateUrl: './stars.component.html',
-  styleUrls: ['./stars.component.css'],
+  styleUrls: ['./stars.component.css']
 })
 export class StarsComponent {
   constructor(private render: Renderer2) {}
@@ -57,3 +51,4 @@ export class StarsComponent {
     }
   }
 }
+

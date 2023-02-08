@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {DataArray, ServiceHTTPService, ConservationService} from "../../index"
 
 @Component({
@@ -6,10 +7,11 @@ import {DataArray, ServiceHTTPService, ConservationService} from "../../index"
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css']
 })
-export class CardsComponent implements OnInit {
+export class CardsComponent implements OnInit, DoCheck {
 
   constructor(private server:ServiceHTTPService,
-    private conservation:ConservationService){}
+    private conservation:ConservationService,
+    private router:Router){}
 
   Cards:DataArray[] | undefined;
 
@@ -63,8 +65,8 @@ export class CardsComponent implements OnInit {
     }
   }
 
-  toProduct(){
-    console.log("ddd")
+  toProduct(card:DataArray){
+    this.router.navigate(['product', card.title])
   }
 
 

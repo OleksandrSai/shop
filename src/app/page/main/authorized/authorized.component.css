@@ -26,3 +26,17 @@ ul{
 ul > li{
 font-style: inherit;
 }
+.autorizated__logout > button{
+  width: 100px;
+  padding: 2px;
+  background-color: rgb(4, 111, 177);
+  border: 1px solid white;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+
+

@@ -2,12 +2,7 @@ import {
   Component,
   ElementRef,
   QueryList,
-  ViewChildren,
-  ViewChild,
-  ContentChild,
-  AfterViewInit,
-  AfterViewChecked,
-  OnChanges,
+  ViewChildren
 } from '@angular/core';
 import { ConservationService } from '../..';
 
@@ -21,22 +16,18 @@ export class FilterComponent {
 
   @ViewChildren('filter') filtres: QueryList<ElementRef> | undefined;
 
-  ngOnInit(){
-  }
+  ngOnInit() {}
 
   FindCart() {
     let array: string[] = [];
     (this.filtres as QueryList<ElementRef>).forEach((elem) => {
       if (elem.nativeElement.checked) {
         array.push(elem.nativeElement.value);
-      }
-
-    });
+      }});
     this.conservation.FindNeed(array);
   }
 
-  sort(value:string){
+  sort(value: string) {
     this.conservation.sortPrice = value;
-    console.log(value)
   }
 }

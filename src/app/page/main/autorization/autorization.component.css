@@ -31,8 +31,7 @@
   cursor: pointer;
 }
 .autorization__erorr{
-  display: flex;
-  flex: auto 1 0;
+  margin-top: 25px;
 }
 .autorization__button{
   display: flex;
@@ -51,3 +50,18 @@
 .autorization_error::first-letter{
   text-transform: uppercase;
 }
+.autorization__button > input {
+  width: 100px;
+  padding: 2px;
+  background-color: rgb(4, 111, 177);
+  border: 1px solid white;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.autorization__button > input:hover{
+  border: 1px solid green;
+}
+

@@ -1,0 +1,18 @@
+<div class="product" *ngFor="let product of product">
+  <div class="product__title">
+    <h2>{{product.title}}</h2>
+  </div>
+  <div class="product__pBody pBody">
+    <div class="pBody__img"><img src="{{product.image}}" alt=""></div>
+    <div class="pBody__info info">
+      <div class="info__box">
+        <div class="info__price">{{product.price | currency}}</div>
+        <button class="info__buy">Купити</button>
+      </div>
+      <div class="info__raiting">Рейтинг товару:<app-stars [star]="product.rating.rate"></app-stars></div>
+      <div class="info__title">Про товар:</div>
+      <div class="info__description">
+        {{product.description}}.</div>
+    </div>
+  </div>
+</div>

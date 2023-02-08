@@ -5,6 +5,7 @@ import { SearchComponent } from './header/search/search.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,

@@ -6,14 +6,14 @@
     </div>
     <section>
       <div class="blocks__product product">
-        <div class="product__card card" *ngFor="let card of Cards" (click)="toProduct()">
-          <div class="card__img"><img src="{{card.image}}" alt=""></div>
+        <div class="product__card card" *ngFor="let card of Cards" >
+          <div class="card__img" (click)="toProduct(card)"><img src="{{card.image}}" alt=""></div>
           <div class="card__raiting">
           <app-stars [star]="card.rating.rate"></app-stars>
         </div>
-          <div class="card__title">{{card.title}}</div>
-          <div class="card__price">{{card.price | currency}}</div>
-          <button class="card__button">Купити</button>
+          <div class="card__title" (click)="toProduct(card)">{{card.title}}</div>
+          <div class="card__price" (click)="toProduct(card)">{{card.price | currency}}</div>
+          <button class="card__button" (click)="toProduct(card)">Переглянути</button>
         </div>
       </div>
     </section>

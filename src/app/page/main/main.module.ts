@@ -22,9 +22,7 @@ import { StarsComponent } from './cards/stars/stars.component';
     ReactiveFormsModule
   ],
   exports:[
-    FilterComponent,
-    AutorizationComponent,
-    FilterComponent
+    StarsComponent
   ]
 })
 export class MainModule { }
