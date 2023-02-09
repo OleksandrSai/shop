@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscriber, Unsubscribable } from 'rxjs';
 import { SearchService } from 'src/app/Service/search.service';
 import { DataArray } from '../..';
@@ -12,8 +13,7 @@ import { DataArray } from '../..';
 export class SearchComponent implements OnInit {
 
   constructor(private serviceSearch:SearchService,
-     ){}
-  subscription:Subscriber<any> | undefined
+     private router:Router){}
 
   serchArray:DataArray[] | undefined;
 
@@ -27,13 +27,14 @@ export class SearchComponent implements OnInit {
   }
 
   needSeacrh(){
-      this.subscription = this.serviceSearch.GetDataTitle().subscribe(((res:any)=> {
+    this.serviceSearch.GetDataTitle().subscribe(((res:any)=> {
          this.serchArray = res;
          if(this.serchArray?.length === 0)this.nothingFound = true;
          else this.nothingFound = false;
         }))
-
-
+  }
+  toProduct(card:DataArray){
+    this.router.navigate(['product', card.title])
   }
 
 

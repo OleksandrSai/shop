@@ -5,7 +5,7 @@ import { MainRoutingModule } from './main-routing.module';
 import {AutorizationComponent, FilterComponent, CardsComponent} from "./index"
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthorizedComponent } from './authorized/authorized.component';
-import { StarsComponent } from './cards/stars/stars.component';
+import { ModuleModule } from 'src/app/module/module.module';
 
 
 @NgModule({
@@ -14,15 +14,14 @@ import { StarsComponent } from './cards/stars/stars.component';
     FilterComponent,
     AutorizationComponent,
     AuthorizedComponent,
-    StarsComponent
   ],
   imports: [
     CommonModule,
     MainRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModuleModule
   ],
   exports:[
-    StarsComponent
   ]
 })
 export class MainModule { }

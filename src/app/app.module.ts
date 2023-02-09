@@ -4,11 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageModule } from "./index"
-import {HttpClientModule} from "@angular/common/http"
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -17,6 +17,8 @@ import {HttpClientModule} from "@angular/common/http"
         AppRoutingModule,
         PageModule,
         HttpClientModule
+    ],
+    exports: [
     ]
 })
 export class AppModule { }

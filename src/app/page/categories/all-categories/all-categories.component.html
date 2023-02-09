@@ -1,0 +1,5 @@
+<div class="categories">
+<div class="categories__item" *ngFor="let key of categories" (click)="goToCategory(key.title)">
+  <span class="categories__item__title">{{key.title | titlecase}}</span>
+  <img src="{{key.image}}"></div>
+</div>

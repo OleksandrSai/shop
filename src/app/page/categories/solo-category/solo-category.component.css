@@ -1,11 +1,3 @@
-.firstPage, .firstPage__blocks{
-  display: flex;
-}
-
-.blocks__navigation{
-  display: flex;
-  flex-direction: column;
-}
 .blocks__product{
   display: flex;
   justify-content: center;

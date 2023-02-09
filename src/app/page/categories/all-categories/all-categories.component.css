@@ -1,0 +1,29 @@
+.categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 1250px;
+  justify-content: space-around;
+}
+
+.categories__item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border: 2px solid skyblue;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.categories__item__title {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+
+
+.categories__item > img {
+  max-width: 150px;
+}

@@ -10,13 +10,16 @@
   padding-top: 40px;
 }
 .seacrh__item{
+  display: flex;
+  align-items: center;
   margin-bottom: 5px;
-  border-bottom: black 1px dashed;
+  cursor: pointer;
 }
 .seacrh{
   list-style: none;
   display: flex;
   flex-direction: column;
   padding-left: 1px;
+
 }
 

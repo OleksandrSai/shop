@@ -3,18 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductComponent } from './product/product.component';
-import { StarsComponent } from './product/stars/stars.component';
+
+import { ModuleModule } from 'src/app/module/module.module';
 
 
 @NgModule({
   declarations: [
     ProductComponent,
-    StarsComponent,
-
   ],
   imports: [
     CommonModule,
-    ProductRoutingModule
+    ProductRoutingModule,
+    ModuleModule
   ]
 })
 export class ProductModule { }

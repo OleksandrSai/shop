@@ -13,7 +13,6 @@ export class AutorizationComponent {
   autorization: any;
   dataUsers: Users[] | undefined;
   auth = this.AuthService.authToken
-  successfulAuth: Users[] | undefined;
   error: string = ""
 
   ngOnInit() {
@@ -51,26 +50,8 @@ export class AutorizationComponent {
   }
 
   whoСame(userName: string, userPass: string) {
-    let came = this.dataUsers?.filter(
-      (user) => user.username == userName && user.password == userPass
-    )
-    this.AuthService.User = came
-
-    // if (came) this.AuthService.User = came;
+    let came = this.dataUsers?.filter((user) => user.username == userName && user.password == userPass)
+    this.AuthService.User = came;
   }
 
-  // checkAutorization() {
-  //   this.dataUsers?.forEach((el: any) => {
-  //     if (
-  //       el.email == this.autorization.controls.email.value &&
-  //       el.password == this.autorization.controls.pass.value
-  //     ) {
-  //       this.goodAuth = true;
-  //       this.badAuth = false;
-  //       this.successfulAuth = el;
-  //     } else {
-  //       this.badAuth = true;
-  //     }
-  //   });
-  // }
 }
