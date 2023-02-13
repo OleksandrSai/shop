@@ -7,9 +7,9 @@ import { DataArray } from '../index';
 export class ConservationService {
   constructor() {}
 
-  DataArray: DataArray[] | undefined;
+  DataArray: DataArray[] = []
 
-  selectedArray:DataArray[] | undefined;
+  selectedArray:DataArray[] = []
 
   sortPrice:string | undefined;
 

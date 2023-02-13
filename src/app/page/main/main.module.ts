@@ -6,6 +6,7 @@ import {AutorizationComponent, FilterComponent, CardsComponent} from "./index"
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthorizedComponent } from './authorized/authorized.component';
 import { ModuleModule } from 'src/app/module/module.module';
+import {NgxPaginationModule} from 'ngx-pagination'
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ModuleModule } from 'src/app/module/module.module';
     CommonModule,
     MainRoutingModule,
     ReactiveFormsModule,
-    ModuleModule
+    ModuleModule,
+    NgxPaginationModule
   ],
   exports:[
   ]

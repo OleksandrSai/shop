@@ -24,4 +24,9 @@ export class AuthService {
   authUser(login:string, pass:string){
   return this.http.post("https://fakestoreapi.com/auth/login",{username: login, password: pass})
 }
+
+InfoAuth(user:Users[]){
+  this.User = user;
+}
+
 }

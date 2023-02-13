@@ -6,7 +6,7 @@
     </div>
     <section>
       <div class="blocks__product product">
-        <div class="product__card card" *ngFor="let card of Cards" >
+        <div class="product__card card" *ngFor="let card of Cards | paginate: { itemsPerPage: howManyItems, currentPage: p }" >
           <div class="card__img" (click)="toProduct(card)"><img src="{{card.image}}" alt=""></div>
           <div class="card__raiting">
           <app-stars [star]="card.rating.rate"></app-stars>
@@ -16,7 +16,14 @@
           <button class="card__button" (click)="toProduct(card)">Переглянути</button>
         </div>
       </div>
+
     </section>
+
   </div>
 
+
 </div>
+<div class="pagination">
+  <pagination-controls  previousLabel=""  nextLabel="" (pageChange)="p = $event"></pagination-controls>
+</div>
+

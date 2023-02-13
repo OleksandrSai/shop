@@ -1,5 +1,6 @@
 .firstPage, .firstPage__blocks{
   display: flex;
+  height: 760px;
 }
 
 .blocks__navigation{
@@ -10,11 +11,12 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
 }
 .product__card{
   display: flex;
   flex-direction: column;
-  margin: 15px;
+  margin: 0px 15px 15px 15px;
   width: 250px;
   border: 2px solid skyblue;
   align-items: center;
@@ -47,4 +49,15 @@ img{
 }
 .card__button:hover{
 background-color: green;
+}
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 220px;
+}
+::ng-deep .current{
+  background-color:rgb(4, 111, 177) !important;
+  border-radius: 10px !important;
+
 }

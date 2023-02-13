@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { BasketService } from 'src/app/Service/basket.service';
 import { AuthService, Users } from '../index';
 
 @Component({
@@ -8,7 +9,9 @@ import { AuthService, Users } from '../index';
   styleUrls: ['./autorization.component.css'],
 })
 export class AutorizationComponent {
-  constructor(private bilder: FormBuilder, private AuthService: AuthService) {}
+  constructor(private bilder: FormBuilder,
+    private AuthService: AuthService,
+    private basketService: BasketService) {}
 
   autorization: any;
   dataUsers: Users[] | undefined;
@@ -51,7 +54,8 @@ export class AutorizationComponent {
 
   whoСame(userName: string, userPass: string) {
     let came = this.dataUsers?.filter((user) => user.username == userName && user.password == userPass)
-    this.AuthService.User = came;
+    this.basketService.takeUserIdBasket(came as Users[])
+    this.AuthService.InfoAuth((came as Users[]))
   }
 
 }

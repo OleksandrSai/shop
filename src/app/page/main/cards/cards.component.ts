@@ -13,7 +13,9 @@ export class CardsComponent implements OnInit, DoCheck {
     private conservation:ConservationService,
     private router:Router){}
 
-  Cards:DataArray[] | undefined;
+  Cards:DataArray[] = [];
+  p:number = 1;
+  howManyItems = 6
 
   ngOnInit(){
     this.cashCart()
@@ -25,7 +27,7 @@ export class CardsComponent implements OnInit, DoCheck {
   }
 
   fillingСards(){
-    if(!this.Cards){
+    if(!this.Cards?.length){
     this.server.Getdata().subscribe((res:any)=> {
       this.Cards = res;
       this.conservation.SaveArray(this.Cards as DataArray[])
@@ -59,7 +61,7 @@ export class CardsComponent implements OnInit, DoCheck {
   }
 
   cashCart(){
-    if(!this.conservation.DataArray) this.fillingСards();
+    if(!this.conservation.DataArray.length) this.fillingСards();
     if(this.conservation.DataArray == undefined){
       this.Cards = this.conservation.DataArray
     }
