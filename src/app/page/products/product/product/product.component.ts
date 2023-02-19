@@ -30,7 +30,6 @@ export class ProductComponent {
     this.getParam();
     this.getProduct();
     this.takeProductID();
-    this.generateObj();
   }
   ngDoCheck() {
     if (this.authService.authToken) this.flag = true;
@@ -45,6 +44,7 @@ export class ProductComponent {
       this.nameParam = param['title'];
     });
   }
+
   getProduct() {
     this.serviceProduct
       .getProduct(this.nameParam as string)
@@ -61,7 +61,7 @@ export class ProductComponent {
 
   generateObj() {
     let obj: Products = {
-      productId: (this.productID as number) - 1,
+      productId: ((this.productID as number) - 1),
       quantity: this.quantity,
     };
     return obj;
@@ -69,27 +69,31 @@ export class ProductComponent {
 
   buyProduct() {
     if (this.flag) {
-      this.basketService.addNewCard(this.generateObj()).subscribe((x: any) => {
+      this.basketService.addNewCard(this.generateObj()).subscribe((x: any) =>
+      {
         this.funcExmination();
         if (!this.exam) this.basketService.giveBasket().push(x);
       });
-    }
 
-    if (this.exam) {
-      this.basketService.giveBasket()
-        .filter((element) => element.date == this.authService.todayDate())
-        .filter((elem) =>
-          elem.products.forEach((el) => {
-
-            if (el.productId == this.generateObj().productId) {
-              el.quantity += 1;}
-
-            else if (this.countClick == 1) {
-              this.countClick++;
-              elem.products.push(this.generateObj());
-            }
-          })
-        );
+      this.addInBasket()
     }
   }
+
+addInBasket(){
+  if (this.exam) {
+    this.basketService.giveBasket()
+      .filter((element) => element.date == this.authService.todayDate())
+      .filter((elem) =>
+        elem.products.forEach((el) => {
+
+          if (el.productId == this.generateObj().productId) el.quantity += 1;
+
+          else {
+            let index = elem.products.findIndex((i)=> i.productId == this.generateObj().productId)
+            if(index == -1) elem.products.push(this.generateObj());
+          }
+      }));
+    }
+  }
+
 }
