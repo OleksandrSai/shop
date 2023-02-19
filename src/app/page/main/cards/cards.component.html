@@ -12,7 +12,7 @@
           <app-stars [star]="card.rating.rate"></app-stars>
         </div>
           <div class="card__title" (click)="toProduct(card)">{{card.title}}</div>
-          <div class="card__price" (click)="toProduct(card)">{{card.price | currency}}</div>
+          <div class="card__price" (click)="toProduct(card)">{{card.price | Grn}}</div>
           <button class="card__button" (click)="toProduct(card)">Переглянути</button>
         </div>
       </div>

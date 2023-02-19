@@ -1,0 +1,26 @@
+input{
+  height: 20px;
+  width: 16px;
+  padding-left: 7px;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	display: none;
+}
+
+button{
+  height: 26px;
+  width: 26px;
+  font-weight: 800;
+  font-size: 12px;
+}
+.plus{
+  margin-right: 10px;
+}

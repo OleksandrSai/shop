@@ -28,3 +28,18 @@ export interface Users{
 export interface My{
   title:string
 }
+
+export interface DataBasket{
+  date: string;
+  id: number;
+  products:[{
+    productId: number;
+    quantity: number;
+  }];
+  userId:number;
+  __v:number;
+}
+export interface Products{
+  productId:number;
+  quantity:number;
+}

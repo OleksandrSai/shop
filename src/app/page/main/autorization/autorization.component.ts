@@ -54,7 +54,7 @@ export class AutorizationComponent {
 
   whoСame(userName: string, userPass: string) {
     let came = this.dataUsers?.filter((user) => user.username == userName && user.password == userPass)
-    this.basketService.takeUserIdBasket(came as Users[])
+    // this.basketService.takeUserIdBasket(came as Users[])
     this.AuthService.InfoAuth((came as Users[]))
   }
 

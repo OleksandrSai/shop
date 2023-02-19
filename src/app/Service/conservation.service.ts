@@ -26,4 +26,8 @@ export class ConservationService {
       }}))
   }
 
+  putInBasket(){
+     return this.DataArray
+  }
+
 }

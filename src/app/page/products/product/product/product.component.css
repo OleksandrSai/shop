@@ -65,3 +65,10 @@ text-transform: uppercase;
   display: flex;
   align-items: center;
 }
+.attention{
+  font-size: 15px;
+  color: red;
+}
+.red{
+  background-color: red;
+}

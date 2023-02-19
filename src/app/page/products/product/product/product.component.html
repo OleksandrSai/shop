@@ -5,9 +5,12 @@
   <div class="product__pBody pBody">
     <div class="pBody__img"><img src="{{product.image}}" alt=""></div>
     <div class="pBody__info info">
+      <div *ngIf="!flag" class="attention">Корзина та можливість покупки товару достпупна лише авторизованим користувачам.</div>
       <div class="info__box">
-        <div class="info__price">{{product.price | currency}}</div>
-        <button class="info__buy">Купити</button>
+        <div class="info__price">{{product.price | Grn}}</div>
+        <button class="info__buy" (click)=" buyProduct()" [ngStyle]="{
+                background: flag ? 'green' : 'red'}"
+        >Купити</button>
         <div class="info__raiting">Рейтинг товару: <app-stars [star]="product.rating.rate"></app-stars></div>
       </div>
       <div class="pBody__box">

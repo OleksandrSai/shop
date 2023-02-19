@@ -1,29 +1,62 @@
-import { Component } from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { BasketService } from 'src/app/Service/basket.service';
+import { ConservationService } from '../..';
+import { DataArray, DataBasket } from '../../../Interface/MyInterface';
 
 @Component({
   selector: 'app-basket',
   templateUrl: './basket.component.html',
-  styleUrls: ['./basket.component.css']
+  styleUrls: ['./basket.component.css'],
 })
-export class BasketComponent {
+export class BasketComponent implements AfterViewChecked {
+  constructor(
+    private ServiceBasket: BasketService,
+    private conservation: ConservationService,
+    private cdr:ChangeDetectorRef
+  ) {}
 
-  constructor(private ServiceBasket: BasketService){}
+  item: DataArray[] = [];
+  basket: DataBasket[] | undefined;
+  total: number | undefined;
+  totalPrice: any;
 
-  products: number | undefined;
-  user:any
-  page:number[] | undefined;
-
-
-  ngOnInit(){
-    this.ServiceBasket.takePage().subscribe((x:any)=> this.products = x)
+  ngOnInit() {
+    this.basket = this.ServiceBasket.giveBasket();
+    this.item = this.conservation.putInBasket();
   }
 
-  NumberPage(){
-    for(let i= 1; i<=(this.products as number), i++;){
-      this.page?.push(i)
-    }
+  ngDoCheck() {
+    this.basket = this.ServiceBasket.giveBasket();
+    this.takeTotal();
+
   }
+
+  ngAfterViewChecked() {
+    this.calculateTotalPrice();
+
+  }
+
+  takeTotal() {
+    this.total = this.ServiceBasket.giveTotal();
+  }
+
+  @ViewChildren('price') price: QueryList<any> | undefined;
+
+  calculateTotalPrice() {
+    this.totalPrice = (this.price as QueryList<any>).reduce(
+      (acc: number, el:ElementRef) => (acc +=(parseFloat(el.nativeElement.innerHTML))),0);
+    this.cdr.detectChanges()
+  }
+
+
 
 
 }

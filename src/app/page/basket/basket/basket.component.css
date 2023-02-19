@@ -1,0 +1,51 @@
+
+.basket__box {
+  border: 3px solid lightblue;
+  margin-bottom: 25px;
+  border-radius: 15px;
+}
+
+.box__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px;
+}
+.box__product {
+ display: flex;
+ border: 1px solid lightskyblue;
+ padding: 8px;
+}
+.product__box1 {
+  display: flex;
+  width: 500px;
+  padding-left: 30px;
+  align-items: center;
+}
+.item__img img{
+  width: 45px;
+  height: 45px;
+}
+.item__title {
+  padding-left: 50px;
+}
+.product__box2 {
+  display: flex;
+  width: 680px;
+  justify-content: space-between;
+  align-items: center;
+}
+.item__price {
+  margin-left: 400px;
+  display: flex;
+
+}
+.item__quantity{
+  display: flex;
+}
+.item__button{
+font-weight: 900;
+font-size: 14px;
+}
+app-input-number{
+  margin-right: 10px;
+}

@@ -1,1 +1,28 @@
-<p>basket works!</p>
+<div class="basket">
+  <div class="basket__box box" *ngFor="let basket of basket; let firstIndex = index">
+    <div class="box__row">
+      <div class="box__row__title">Кошик №{{basket.id}}</div>
+      <div class="box__row__date">Дата створення корзини {{basket.date | date}}</div>
+    </div>
+    <div class="box__product product" *ngFor="let key of basket.products; let secondIndex = index" >
+      <div class="product__box1 item">
+        <div class="item__img"><img src="{{item[key.productId].image}}" alt=""></div>
+        <div class="item__title">{{item[key.productId].title}}</div>
+      </div>
+      <div class="product__box2 item">
+        <div #price class="item__price">{{item[key.productId].price * key.quantity  | number | Grn}}</div>
+        <div class="item__quantity">
+          <app-input-number [takes]="key.quantity" [first]="firstIndex"
+          [second]="secondIndex"
+          [userId]="basket.userId"
+          [products]="{productId: key.productId, quantity: key.quantity}"
+          [idBasket]="basket.id">
+        </app-input-number>
+
+       </div>
+      </div>
+    </div>
+  </div>
+  <div>Загальна кількість товарів у корзинах: {{total}}</div>
+  <div>Загальна сумма товарів у кошику: {{totalPrice | number | Grn}}</div>
+</div>

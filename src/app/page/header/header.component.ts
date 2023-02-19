@@ -1,32 +1,54 @@
-import { HtmlParser } from '@angular/compiler';
-import { Component, DoCheck, ElementRef, ViewChild } from '@angular/core';
-import { debounce, debounceTime, fromEvent, map, Observable, switchMap } from 'rxjs';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { fromEvent } from 'rxjs';
+import { BasketService } from 'src/app/Service/basket.service';
 import { SearchService } from '../../Service/search.service';
-map
-fromEvent
+import { AuthService } from '../main';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent{
+export class HeaderComponent {
+  constructor(
+    private serviceSearch: SearchService,
+    private basketService: BasketService,
+    private authService: AuthService
+  ) {}
 
-  constructor(private serviceSearch: SearchService){}
+  activeSearch: string = '';
 
-  activeSearch:string = ""
+  input: any;
 
-  input:any
+  totalInBasket: number | undefined;
 
-  @ViewChild("myInput") myInput:ElementRef | undefined;
+  flag: boolean = false;
 
+  @ViewChild('myInput') myInput: ElementRef | undefined;
 
-  ngAfterViewInit(){
-    this.input = fromEvent((this.myInput as ElementRef).nativeElement, 'input')
-    this.GiveInput()
+  ngAfterViewInit() {
+    this.input = fromEvent((this.myInput as ElementRef).nativeElement, 'input');
+    this.GiveInput();
   }
 
-  GiveInput(){
-    this.serviceSearch.TakeInput(this.input)
+  ngDoCheck() {
+    this.showTotalNumber()
+  }
+
+  showTotalNumber(){
+    if (this.basketService.giveBasket().length) {
+      this.basketService.calculateTotalProduct();
+      this.takeTotal();
+      this.flag = true;
+    } else this.flag = false;
+  }
+
+
+  GiveInput() {
+    this.serviceSearch.TakeInput(this.input);
+  }
+
+  takeTotal() {
+    this.totalInBasket = this.basketService.giveTotal();
   }
 }
