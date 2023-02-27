@@ -1,5 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, inject, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
+import { AuthService } from '../main';
 import{SearchService, BasketService} from "./index"
 
 @Component({
@@ -47,5 +48,8 @@ export class HeaderComponent {
 
   takeTotal() {
     this.totalInBasket = this.basketService.giveTotal();
+  }
+  sss(){
+    console.log(inject(AuthService).takeAuth())
   }
 }

@@ -14,7 +14,8 @@ export class ScaleImgDirective {
     this.scaleImg("scale(1)")
   }
   scaleImg(scale:string){
-this.render.setStyle(this.elementRef.nativeElement, "transform", scale)
+    this.render.setStyle(this.elementRef.nativeElement, "transition", "transform 0.8s")
+this.render.setStyle(this.elementRef.nativeElement, "transform", scale);
   }
 
 }

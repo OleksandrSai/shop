@@ -8,11 +8,12 @@
 
 .rating__body{
   position: relative;
+  transform: scale();
 }
 .rating__body::before{
   content: "★★★★★";
   display: block;
-
+  color:lightblue;
 }
 .rating__items{
   display: flex;

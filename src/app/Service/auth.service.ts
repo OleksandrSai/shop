@@ -57,4 +57,9 @@ export class AuthService {
     let thisDate = `${a.getFullYear()}-${month}-${date}`
     return thisDate
   }
+
+  takeAuth(){
+    if(!this.authToken.length) return false;
+    else return true;
+  }
 }
