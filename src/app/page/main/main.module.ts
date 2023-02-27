@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthorizedComponent } from './authorized/authorized.component';
 import { ModuleModule } from 'src/app/module/module.module';
 import {NgxPaginationModule} from 'ngx-pagination'
+import { DirectiveModule } from 'src/app/directive/directive.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {NgxPaginationModule} from 'ngx-pagination'
     MainRoutingModule,
     ReactiveFormsModule,
     ModuleModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    DirectiveModule
   ],
   exports:[
   ]

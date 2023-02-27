@@ -19,6 +19,7 @@ import {HttpClientModule} from "@angular/common/http";
         HttpClientModule
     ],
     exports: [
+
     ]
 })
 export class AppModule { }

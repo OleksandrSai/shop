@@ -5,13 +5,14 @@ import {DataArray, ServiceHTTPService, ConservationService} from "../../index"
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.css']
+  styleUrls: ['./cards.component.css'],
 })
 export class CardsComponent implements OnInit, DoCheck {
 
   constructor(private server:ServiceHTTPService,
     private conservation:ConservationService,
-    private router:Router){}
+    private router:Router,
+    ){}
 
   Cards:DataArray[] = [];
   p:number = 1;

@@ -1,4 +1,4 @@
-export * from "./product/product.component"
-export * from "./product.module"
-
-
+export * from "../../../Interface/MyInterface"
+export * from "../../../Service/basket.service"
+export * from "../../../Service/auth.service"
+export * from "../../../Service/product.service"

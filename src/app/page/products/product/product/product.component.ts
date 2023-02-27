@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataArray, Products } from 'src/app/Interface/MyInterface';
-import { AuthService } from 'src/app/Service/auth.service';
-import { BasketService } from 'src/app/Service/basket.service';
-import { ProductService } from 'src/app/Service/product.service';
+import {
+  ProductService,
+  BasketService,
+  AuthService,
+  DataArray,
+  Products,
+} from '../index';
 
 @Component({
   selector: 'app-product',
@@ -36,7 +39,6 @@ export class ProductComponent {
 
   takeProductID() {
     this.product?.forEach((elem: DataArray) => (this.productID = elem.id));
-    console.log(this.productID)
   }
 
   getParam() {
@@ -55,13 +57,14 @@ export class ProductComponent {
   }
 
   funcExmination() {
-    this.exam = this.basketService.giveBasket()
-    .some((element) => element.date == this.authService.todayDate());
+    this.exam = this.basketService
+      .giveBasket()
+      .some((element) => element.date == this.authService.todayDate());
   }
 
   generateObj() {
     let obj: Products = {
-      productId: ((this.productID as number) - 1),
+      productId: (this.productID as number) - 1,
       quantity: this.quantity,
     };
     return obj;
@@ -69,31 +72,31 @@ export class ProductComponent {
 
   buyProduct() {
     if (this.flag) {
-      this.basketService.addNewCard(this.generateObj()).subscribe((x: any) =>
-      {
+      this.basketService.addNewCard(this.generateObj()).subscribe((x: any) => {
         this.funcExmination();
         if (!this.exam) this.basketService.giveBasket().push(x);
       });
 
-      this.addInBasket()
+      this.addInBasket();
     }
   }
 
-addInBasket(){
-  if (this.exam) {
-    this.basketService.giveBasket()
-      .filter((element) => element.date == this.authService.todayDate())
-      .filter((elem) =>
-        elem.products.forEach((el) => {
-
-          if (el.productId == this.generateObj().productId) el.quantity += 1;
-
-          else {
-            let index = elem.products.findIndex((i)=> i.productId == this.generateObj().productId)
-            if(index == -1) elem.products.push(this.generateObj());
-          }
-      }));
+  addInBasket() {
+    if (this.exam) {
+      this.basketService
+        .giveBasket()
+        .filter((element) => element.date == this.authService.todayDate())
+        .filter((elem) =>
+          elem.products.forEach((el) => {
+            if (el.productId == this.generateObj().productId) el.quantity += 1;
+            else {
+              let index = elem.products.findIndex(
+                (i) => i.productId == this.generateObj().productId
+              );
+              if (index == -1) elem.products.push(this.generateObj());
+            }
+          })
+        );
     }
   }
-
 }
