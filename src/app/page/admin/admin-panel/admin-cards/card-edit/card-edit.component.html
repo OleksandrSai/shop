@@ -1,0 +1,22 @@
+<div class="card" *ngFor="let key of card">
+<div class="card__edit">
+  <div class="box__label label">
+    <label for="label__title">Назва товару</label>
+    <label for="label__img">Адреса картинки</label>
+    <label for="label__price">Ціна</label>
+    <label for="label__category">Категорія</label>
+    <label for="label__description">Опис</label>
+  </div>
+  <div class="box__input input" >
+    <input id="input__title" type="text" value="{{key.title}}" #title>
+    <input id="input__img" type="text"value="{{key.image}}" #img>
+    <input id="input__price" type="number" value="{{key.price}}" #price>
+    <input id="input__category" type="text" value="{{key.category}}" #category>
+    <textarea value="{{key.description}}"#description></textarea>
+  </div>
+
+
+
+</div>
+<button (click)="editThisCard(key.id, title.value, img.value, +price.value, category.value, description.value)">Внести зміни</button>
+</div>

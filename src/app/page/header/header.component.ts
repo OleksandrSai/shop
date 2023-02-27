@@ -1,8 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
-import { BasketService } from 'src/app/Service/basket.service';
-import { SearchService } from '../../Service/search.service';
-import { AuthService } from '../main';
+import{SearchService, BasketService} from "./index"
 
 @Component({
   selector: 'app-header',
@@ -12,8 +10,7 @@ import { AuthService } from '../main';
 export class HeaderComponent {
   constructor(
     private serviceSearch: SearchService,
-    private basketService: BasketService,
-    private authService: AuthService
+    private basketService: BasketService
   ) {}
 
   activeSearch: string = '';

@@ -18,7 +18,8 @@ import { MyCurrencyHryvniaPipe } from '../Pipes/my-currency-hryvnia.pipe';
   exports:[
     StarsComponent,
     InputNumberComponent,
-    MyCurrencyHryvniaPipe
+    MyCurrencyHryvniaPipe,
+
     ]
 })
 export class ModuleModule { }

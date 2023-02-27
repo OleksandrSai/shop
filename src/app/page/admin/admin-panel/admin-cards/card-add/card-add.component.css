@@ -1,0 +1,41 @@
+.card{
+  display: flex;
+  border: 1px solid black;
+  width: 550px;
+  height: 400px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.card__edit{
+  display: flex;
+
+}
+.box__label{
+  display: flex;
+  flex-direction: column;
+}
+.box__input{
+  display: flex;
+  flex-direction: column;
+}
+
+label,input{
+  margin: 10px;
+}
+button{
+  margin-top: 10px;
+  width: 200px;
+}
+input{
+  width: 350px;
+}
+#input__description{
+ height: 170px;
+  width: 350px;
+}
+textarea{
+  margin-left: 9px;
+  max-width: 350px;
+  height: 150px;
+}

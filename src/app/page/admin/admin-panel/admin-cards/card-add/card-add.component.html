@@ -1,0 +1,23 @@
+<div class="card">
+  <span>Додати новий товар</span>
+  <div class="card__edit">
+    <div class="box__label label">
+      <label for="label__title">Назва товару</label>
+      <label for="label__img">Адреса картинки</label>
+      <label for="label__price">Ціна</label>
+      <label for="label__category">Категорія</label>
+      <label for="label__description">Опис</label>
+    </div>
+    <div class="box__input input" >
+      <input id="input__title" type="text" #title>
+      <input id="input__img" type="text" #img>
+      <input id="input__price" type="number"#price>
+      <input id="input__category" type="text" #category>
+      <textarea #description></textarea>
+    </div>
+
+
+
+  </div>
+  <button (click)="addNewProduct(title.value, img.value, +price.value, category.value, description.value)">Додати новий товар</button>
+  </div>

@@ -1,6 +1,5 @@
-import { Component, DoCheck } from '@angular/core';
-import { BasketService } from 'src/app/Service/basket.service';
-import { AuthService, Users } from '../index';
+import { Component} from '@angular/core';
+import { AuthService, Users, BasketService } from '../index';
 
 @Component({
   selector: 'app-authorized',
@@ -30,7 +29,6 @@ export class AuthorizedComponent {
     if (!this.basketService.giveBasket().length)
       this.authService.BasketUser().subscribe((res: any) => {
         this.basketService.takeBasket(res);
-        console.log(res);
       });
   }
 }

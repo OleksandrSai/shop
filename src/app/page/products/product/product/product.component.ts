@@ -24,7 +24,6 @@ export class ProductComponent {
   quantity: number = 1;
   flag: boolean = false;
   exam: boolean = true;
-  countClick: number = 1;
 
   ngOnInit() {
     this.getParam();
@@ -37,6 +36,7 @@ export class ProductComponent {
 
   takeProductID() {
     this.product?.forEach((elem: DataArray) => (this.productID = elem.id));
+    console.log(this.productID)
   }
 
   getParam() {

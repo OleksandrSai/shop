@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoriesService } from 'src/app/Service/categories.service';
-import { DataArray } from '../../main';
+import {DataArray,CategoriesService  } from "../index"
 
 
 @Component({

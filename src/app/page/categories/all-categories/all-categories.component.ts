@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CategoriesService } from 'src/app/Service/categories.service';
+import {CategoriesService} from "../index"
 
 @Component({
   selector: 'app-all-categories',

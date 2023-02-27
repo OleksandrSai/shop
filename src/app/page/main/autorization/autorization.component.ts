@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { BasketService } from 'src/app/Service/basket.service';
 import { AuthService, Users } from '../index';
 
 @Component({
@@ -10,8 +9,7 @@ import { AuthService, Users } from '../index';
 })
 export class AutorizationComponent {
   constructor(private bilder: FormBuilder,
-    private AuthService: AuthService,
-    private basketService: BasketService) {}
+    private AuthService: AuthService) {}
 
   autorization: any;
   dataUsers: Users[] | undefined;
@@ -21,10 +19,15 @@ export class AutorizationComponent {
   ngOnInit() {
     this.loadForm();
     this.getUsers();
+
   }
 
   ngDoCheck(){
     this.auth = this.AuthService.authToken
+  }
+
+  giveAllUsers(){
+  this.AuthService.takeAllUsers((this.dataUsers as Users[]))
   }
 
   getUsers() {
@@ -42,6 +45,7 @@ export class AutorizationComponent {
   }
 
   authUser(userName: string, userPass: string) {
+    this.giveAllUsers()
     this.AuthService.authUser(userName, userPass).subscribe({
       next: (auth: any) => {
         this.AuthService.authToken = auth.token;
@@ -54,7 +58,6 @@ export class AutorizationComponent {
 
   whoСame(userName: string, userPass: string) {
     let came = this.dataUsers?.filter((user) => user.username == userName && user.password == userPass)
-    // this.basketService.takeUserIdBasket(came as Users[])
     this.AuthService.InfoAuth((came as Users[]))
   }
 

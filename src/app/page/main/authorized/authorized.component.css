@@ -25,6 +25,7 @@ ul{
 }
 ul > li{
 font-style: inherit;
+cursor: pointer;
 }
 .autorizated__logout > button{
   width: 100px;

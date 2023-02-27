@@ -54,9 +54,7 @@ export class BasketService {
    return this.http.post("https://fakestoreapi.com/carts",
     {userId: this.UserId,
     date: this.auth.todayDate(),
-    products:[Myproduct]}).pipe(
-      take(1)
-    )
+    products:[Myproduct]})
   }
 
 

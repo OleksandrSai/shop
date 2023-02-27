@@ -14,6 +14,15 @@ export class AuthService {
   badAuth: boolean = false;
   User: Users[] | undefined;
   id: number | undefined;
+  usersAll:Users[] | undefined;
+
+  takeAllUsers(users:Users[]){
+    this.usersAll = users;
+  }
+
+  giveAllUsers(){
+    return this.usersAll
+  }
 
   allUsers() {
     return this.http.get('https://fakestoreapi.com/users');

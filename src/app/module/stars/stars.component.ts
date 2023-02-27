@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-stars',
@@ -6,7 +6,6 @@ import { Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/cor
   styleUrls: ['./stars.component.css']
 })
 export class StarsComponent {
-  constructor(private render: Renderer2) {}
 
   @Input('star') rating: number | undefined;
 

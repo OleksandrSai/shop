@@ -1,15 +1,12 @@
 import {
   AfterViewChecked,
-  AfterViewInit,
   ChangeDetectorRef,
   Component,
   ElementRef,
   QueryList,
   ViewChildren,
 } from '@angular/core';
-import { BasketService } from 'src/app/Service/basket.service';
-import { ConservationService } from '../..';
-import { DataArray, DataBasket } from '../../../Interface/MyInterface';
+import {BasketService, ConservationService, DataArray, DataBasket} from "../index"
 
 @Component({
   selector: 'app-basket',
@@ -28,15 +25,16 @@ export class BasketComponent implements AfterViewChecked {
   total: number | undefined;
   totalPrice: any;
 
+  @ViewChildren('price') price: QueryList<any> | undefined;
+
   ngOnInit() {
     this.basket = this.ServiceBasket.giveBasket();
-    this.item = this.conservation.putInBasket();
+    this.item = this.conservation.takeAllCards();
   }
 
   ngDoCheck() {
     this.basket = this.ServiceBasket.giveBasket();
     this.takeTotal();
-
   }
 
   ngAfterViewChecked() {
@@ -48,12 +46,15 @@ export class BasketComponent implements AfterViewChecked {
     this.total = this.ServiceBasket.giveTotal();
   }
 
-  @ViewChildren('price') price: QueryList<any> | undefined;
-
   calculateTotalPrice() {
     this.totalPrice = (this.price as QueryList<any>).reduce(
       (acc: number, el:ElementRef) => (acc +=(parseFloat(el.nativeElement.innerHTML))),0);
     this.cdr.detectChanges()
+  }
+
+  sum(i:any){
+    let basketTotal = (this.basket as any[])[i].products.reduce(((acc:any, el:any)=> acc += this.item[el.productId].price * el.quantity),0)
+    return basketTotal
   }
 
 

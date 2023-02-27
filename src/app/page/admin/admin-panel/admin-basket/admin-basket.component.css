@@ -1,0 +1,91 @@
+summary{
+  cursor: pointer;
+}
+
+.basket__box {
+  border: 3px solid lightblue;
+  margin-bottom: 25px;
+  border-radius: 15px;
+}
+
+.box__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px;
+}
+.box__product {
+ display: flex;
+ border: 1px solid lightskyblue;
+ padding: 8px;
+}
+.product__box1 {
+  display: flex;
+  width: 500px;
+  padding-left: 30px;
+  align-items: center;
+}
+.item__img img{
+  width: 45px;
+  height: 45px;
+}
+.item__title {
+  padding-left: 50px;
+}
+.product__box2 {
+  display: flex;
+  width: 680px;
+  justify-content: space-between;
+  align-items: center;
+}
+.item__price {
+  margin-left: 400px;
+  display: flex;
+
+}
+.item__quantity{
+  display: flex;
+}
+.item__button{
+font-weight: 900;
+font-size: 14px;
+}
+.header{
+  height: 75px;
+  background-color: rgb(235, 208, 198);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.totalPrice{
+  display: flex;
+  margin: 10px;
+}
+::ng-deep .current{
+  background-color:rgb(4, 111, 177) !important;
+  border-radius: 10px !important;
+
+}
+.contorls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.basket{
+  min-height: 200px;
+}
+.form__title{
+  display: flex;
+  justify-content: center;
+  margin: 8px 50px 8px 0px;
+}
+.myInvalid{
+  border-bottom: 3px solid red;
+}
+.myValid{
+  border-bottom: 3px solid green;
+}
+input{
+  outline: none;
+}

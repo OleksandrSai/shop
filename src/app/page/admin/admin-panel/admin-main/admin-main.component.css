@@ -1,0 +1,16 @@
+.main{
+  display: flex;
+  flex-direction: column;
+}
+.main__title{
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+.main__box{
+  display: flex;
+  flex-direction: column;
+}
+.main__basketPrice, .main__basketCount, .main__cardsCount, .main__userCount{
+  margin: 15px;
+}

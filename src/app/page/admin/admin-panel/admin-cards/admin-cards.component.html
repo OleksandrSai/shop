@@ -1,0 +1,22 @@
+<div class="panel__cards">
+  <div class="newCards">
+    <button (click)="addCard()">Додати новий товар</button>
+
+  </div>
+  <app-card-add *ngIf="flagAdd" (successAdd)="successAdd($event)"></app-card-add>
+  <app-card-edit *ngIf="flagEdit" (successfulEdit)="successfulEdit($event)"></app-card-edit>
+  <div class="cards" *ngFor="let card of cards | paginate: { itemsPerPage: howManyItems, currentPage: p }; ">
+    <div class="card__img"><img src="{{card.image}}"></div>
+    <div class="cards__title">{{card.title}}</div>
+    <div class="cards__price">{{card.price | number | Grn}}</div>
+    <div class="card__edit">
+    <button (click)="requestDelCard(card.id)">del</button>
+    <button (click)="editCard(card.id)">edit</button>
+  </div>
+  </div>
+
+
+  </div>
+  <div class="contorls">
+    <pagination-controls previousLabel="" nextLabel="" (pageChange)="p = $event"></pagination-controls>
+  </div>

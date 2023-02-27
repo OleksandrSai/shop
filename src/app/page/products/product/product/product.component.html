@@ -5,7 +5,7 @@
   <div class="product__pBody pBody">
     <div class="pBody__img"><img src="{{product.image}}" alt=""></div>
     <div class="pBody__info info">
-      <div *ngIf="!flag" class="attention">Корзина та можливість покупки товару достпупна лише авторизованим користувачам.</div>
+      <div *ngIf="!flag" class="attention">Кошик та можливість купити товар достпупна лише авторизованим користувачам.</div>
       <div class="info__box">
         <div class="info__price">{{product.price | Grn}}</div>
         <button class="info__buy" (click)=" buyProduct()" [ngStyle]="{

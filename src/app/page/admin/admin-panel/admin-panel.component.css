@@ -1,0 +1,45 @@
+.admin__panel{
+  display: flex;
+  width: 1300px;
+}
+.menu{
+  width: 220px;
+  height: 300px;
+}
+.menu ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0px;
+  align-items: center;
+}
+.menu ul span{
+  padding-bottom: 15px;
+}
+.menu ul li{
+  margin-bottom: 10px;
+  border:1px solid black;
+  padding: 10px;
+  border-radius: 15px;
+  width: 90%;
+}
+.router{
+  margin-left: 15px;
+  width: 1000px;
+  border: 1px solid black;
+}
+.main__helo{
+  display: flex;
+  justify-content: center;
+  padding: 15px 0px 15px 0px;
+}
+.main__statistic{
+  margin-left: 15px;
+}
+.main__statistic__basket, .main__statistic__user, .main__statistic__cards{
+ padding-top: 15px;
+}
+.active{
+  background-color: lightskyblue;
+}
+

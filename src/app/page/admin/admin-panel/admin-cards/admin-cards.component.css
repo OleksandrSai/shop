@@ -1,0 +1,81 @@
+.panel__cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  min-height: 700px;
+  position: relative;
+}
+.cards {
+  display: flex;
+  max-width: 1000px;
+  height: 50px;
+  align-items: center;
+  margin-top: 15px;
+  border: 1px solid lightskyblue;
+  padding: 5px;
+}
+.cards__title {
+  display: flex;
+  justify-content: flex-start;
+  width: 70%;
+}
+.cards__price {
+  display: flex;
+  justify-content: flex-end;
+  width: 10%;
+  margin-right: 5%;
+
+}
+button{
+  width: 50px;
+}
+.card__edit{
+  display: flex;
+  flex-direction: column;
+}
+::ng-deep .current{
+  background-color:rgb(4, 111, 177) !important;
+  border-radius: 10px !important;
+
+}
+.contorls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.newCards{
+  width: 100%;
+  height: 40px;
+  display: flex;
+}
+.newCards button{
+  width: 100%;
+  border: 1px rgb(110, 105, 104) solid;
+
+}
+.newCards button:active{
+  border: 2px solid white;
+}
+.card__img img{
+  width: 50px;
+  height: 50px;
+}
+span{
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+app-card-edit{
+  position: absolute;
+  top: 150px;
+  left: 250px;
+  background-color: white;
+}
+app-card-add{
+  position: absolute;
+  top: 150px;
+  left: 250px;
+  background-color: white;
+}

@@ -1,8 +1,6 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subscriber, Unsubscribable } from 'rxjs';
-import { SearchService } from 'src/app/Service/search.service';
-import { DataArray } from '../..';
+import {DataArray, SearchService} from "../index"
 
 
 @Component({

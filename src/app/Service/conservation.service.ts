@@ -26,7 +26,7 @@ export class ConservationService {
       }}))
   }
 
-  putInBasket(){
+  takeAllCards(){
      return this.DataArray
   }
 

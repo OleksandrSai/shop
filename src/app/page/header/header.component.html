@@ -3,9 +3,9 @@
   <img class="header__logo" src="https://w7.pngwing.com/pngs/559/668/png-transparent-energy-audit-efficient-energy-use-house-energy-conservation-eco-friendly-building-leaf-logo.png" alt="">
 
   <nav class="header__menu">
-    <li routerLink="/" routerLinkActive="active">Головна</li>
-    <li class="header__menu__catalog" routerLink="categories">Каталог</li>
-    <li>Адмін панель</li>
+    <li routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Головна</li>
+    <li class="header__menu__catalog" routerLink="categories" routerLinkActive="active" >Каталог</li>
+    <li routerLink="admin" routerLinkActive="active">Адмін панель</li>
     <li class="header__menu__basket" routerLink="basket"> <img src="assets/basket.png">
       <div class="header__menu__quantity"*ngIf="flag">{{totalInBasket}}</div></li>
 
