@@ -43,3 +43,7 @@ export interface Products{
   productId:number;
   quantity:number;
 }
+export interface Categories{
+  title:string;
+  image:string;
+}

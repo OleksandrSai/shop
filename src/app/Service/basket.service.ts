@@ -12,7 +12,6 @@ export class BasketService {
   constructor(private http: HttpClient, private auth: AuthService) {}
 
   UserId: number | undefined;
-  num: any;
   dataUserBasket: DataBasket[] = [];
   totalProduct:number | undefined;
   totalPrice:number | undefined;
@@ -25,8 +24,7 @@ export class BasketService {
     }
     catch{
       console.log("Помилка. Кошики пусті - не можливо порахувати")
-      this.totalProduct = 0
-    }
+      this.totalProduct = 0}
   }
 
   giveTotal(){
@@ -46,8 +44,8 @@ export class BasketService {
     {userId: this.UserId,
     date: this.auth.todayDate(),
     products:[product]}).pipe(
-      delay(650)
-    )
+      take(1),
+      delay(650))
   }
 
   addNewCard(Myproduct:Products){

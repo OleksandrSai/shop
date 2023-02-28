@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, inject, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, DoCheck, ElementRef, Inject, inject, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { AuthService } from '../main';
 import{SearchService, BasketService} from "./index"
@@ -8,7 +8,7 @@ import{SearchService, BasketService} from "./index"
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements DoCheck, AfterViewInit{
   constructor(
     private serviceSearch: SearchService,
     private basketService: BasketService
@@ -41,7 +41,6 @@ export class HeaderComponent {
     } else this.flag = false;
   }
 
-
   GiveInput() {
     this.serviceSearch.TakeInput(this.input);
   }
@@ -49,7 +48,5 @@ export class HeaderComponent {
   takeTotal() {
     this.totalInBasket = this.basketService.giveTotal();
   }
-  sss(){
-    console.log(inject(AuthService).takeAuth())
-  }
+
 }

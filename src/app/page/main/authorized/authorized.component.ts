@@ -1,4 +1,5 @@
-import { Component} from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AuthService, Users, BasketService } from '../index';
 
 @Component({
@@ -6,7 +7,7 @@ import { AuthService, Users, BasketService } from '../index';
   templateUrl: './authorized.component.html',
   styleUrls: ['./authorized.component.css'],
 })
-export class AuthorizedComponent {
+export class AuthorizedComponent implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     private basketService: BasketService
@@ -14,6 +15,7 @@ export class AuthorizedComponent {
 
   user: Users[] | undefined;
   flag: boolean = false;
+  subscription:Subscription | undefined;
 
   ngOnInit() {
     this.user = this.authService.User;
@@ -27,8 +29,11 @@ export class AuthorizedComponent {
 
   fillBasket() {
     if (!this.basketService.giveBasket().length)
-      this.authService.BasketUser().subscribe((res: any) => {
+    this.subscription = this.authService.BasketUser().subscribe((res: any) => {
         this.basketService.takeBasket(res);
       });
+  }
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe()
   }
 }

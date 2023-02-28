@@ -1,5 +1,6 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import {DataArray, ServiceHTTPService, ConservationService} from "../../index"
 
 @Component({
@@ -7,7 +8,7 @@ import {DataArray, ServiceHTTPService, ConservationService} from "../../index"
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css'],
 })
-export class CardsComponent implements OnInit, DoCheck {
+export class CardsComponent implements OnInit, DoCheck, OnDestroy {
 
   constructor(private server:ServiceHTTPService,
     private conservation:ConservationService,
@@ -17,6 +18,7 @@ export class CardsComponent implements OnInit, DoCheck {
   Cards:DataArray[] = [];
   p:number = 1;
   howManyItems = 6
+  subscription:Subscription | undefined;
 
   ngOnInit(){
     this.cashCart()
@@ -29,7 +31,7 @@ export class CardsComponent implements OnInit, DoCheck {
 
   fillingСards(){
     if(!this.Cards?.length){
-    this.server.Getdata().subscribe((res:any)=> {
+    this.subscription= this.server.Getdata().subscribe((res:any)=> {
       this.Cards = res;
       this.conservation.SaveArray(this.Cards as DataArray[])
       })
@@ -42,19 +44,16 @@ export class CardsComponent implements OnInit, DoCheck {
         let all:DataArray[] | undefined;
         all = this.Cards?.sort((a,b)=> a.id - b.id)
         this.Cards = (all as DataArray[])
-
         break;
       case  "max":
         let max:DataArray[] | undefined;
         max = this.Cards?.sort((a,b)=> b.price - a.price)
         this.Cards = (max as DataArray[])
-
         break;
        case  "min":
         let min:DataArray[] | undefined;
         min = this.Cards?.sort((a,b)=> a.price - b.price)
         this.Cards = (min as DataArray[])
-
         break;
     }
   }
@@ -73,6 +72,10 @@ export class CardsComponent implements OnInit, DoCheck {
 
   toProduct(card:DataArray){
     this.router.navigate(['product', card.title])
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe()
   }
 
 

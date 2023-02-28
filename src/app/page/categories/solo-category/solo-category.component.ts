@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import {DataArray,CategoriesService  } from "../index"
 
 
@@ -8,19 +9,19 @@ import {DataArray,CategoriesService  } from "../index"
   templateUrl: './solo-category.component.html',
   styleUrls: ['./solo-category.component.css']
 })
-export class SoloCategoryComponent {
+export class SoloCategoryComponent implements OnInit, OnDestroy {
 
   constructor(private router:Router,
     private ServiveProduct: CategoriesService,
     private activatedRoute:ActivatedRoute){}
 
-  cards:any;
+  cards:DataArray[] | undefined;
   thisWay:string | undefined;
+  subscription:Subscription | undefined;
 
   ngOnInit(){
     this.whatWay()
     this.TakeProduct()
-    console.log(this.cards)
   }
 
   toProduct(card:DataArray){
@@ -32,7 +33,11 @@ export class SoloCategoryComponent {
   }
 
   TakeProduct(){
-    this.ServiveProduct.getCategory((this.thisWay as string)).subscribe((res:any)=> this.cards = res)
+    this.subscription = this.ServiveProduct.getCategory((this.thisWay as string)).subscribe((res:any)=> this.cards = res)
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe()
   }
 
 }

@@ -6,12 +6,17 @@
   justify-content: space-around;
   user-select: none;
   color: white;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .header__logo {
   height: 80px;
   margin: 10px;
   border-radius: 40px;
+  cursor: pointer;
+}
+.header__logo:hover{
+  transition: all 1s;
+  transform: rotate(360deg)
 }
 .header__menu {
   display: flex;

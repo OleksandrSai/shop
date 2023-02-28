@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import {DataArray, AdminService, ConservationService} from "../index"
 
 @Component({
@@ -6,7 +7,7 @@ import {DataArray, AdminService, ConservationService} from "../index"
   templateUrl: './admin-cards.component.html',
   styleUrls: ['./admin-cards.component.css']
 })
-export class AdminCardsComponent {
+export class AdminCardsComponent implements OnInit, OnDestroy {
 
 constructor(private serviceConservation:ConservationService,
   private serviceAdmin:AdminService){}
@@ -16,6 +17,7 @@ p:number = 1;
 howManyItems:number = 10;
 flagEdit:boolean = false;
 flagAdd:boolean = false;
+subscription:Subscription | undefined;
 
 ngOnInit(){
   this.fillCards()
@@ -26,10 +28,9 @@ fillCards(){
 }
 
 requestDelCard(id:number){
-this.serviceAdmin.delProduct(id).subscribe({
+this.subscription = this.serviceAdmin.delProduct(id).subscribe({
   next:(res:any) => this.delCards(res),
-  error:(error) => console.log(error)
-})
+  error:(error) => console.log(error)})
 }
 
 delCards(id:number){
@@ -41,17 +42,25 @@ delCards(id:number){
 editCard(id:number){
   this.serviceAdmin.takeEditCard(id)
   this.flagEdit = true;
-
 }
+
 addCard(){
   this.flagAdd = true;
 }
+
 successfulEdit(event:boolean){
   this.flagEdit = event;
 }
+
 successAdd(event:boolean){
   this.flagAdd = event;
 }
+
+ngOnDestroy(): void {
+  this.subscription?.unsubscribe()
+}
+
+
 
 
 }

@@ -1,21 +1,20 @@
-import { Component } from '@angular/core';
-import { DataArray, DataBasket, Products } from 'src/app/Interface/MyInterface';
-import { AdminService } from 'src/app/Service/admin.service';
-import { AuthService } from 'src/app/Service/auth.service';
-import { ConservationService } from 'src/app/Service/conservation.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import {ConservationService, AdminService, AuthService, DataArray, DataBasket, Products } from "../index"
 
 @Component({
   selector: 'app-admin-main',
   templateUrl: './admin-main.component.html',
   styleUrls: ['./admin-main.component.css'],
 })
-export class AdminMainComponent {
+export class AdminMainComponent implements OnInit, OnDestroy {
   totalPrice: number | undefined;
   allBasket: DataBasket[] = [];
   item: DataArray[] = [];
   countBasket:number = this.allBasket.length;
   countItems:number | undefined;
   countUsers:number | undefined;
+  subscription:Subscription | undefined;
 
 
   constructor(
@@ -39,7 +38,7 @@ export class AdminMainComponent {
   }
 
   showAllBasket() {
-    this.serviceAdmin.takeAllBasket().subscribe((res: any) => {
+    this.subscription = this.serviceAdmin.takeAllBasket().subscribe((res: any) => {
       this.allBasket = res;
       this.calculateTotalPrice();
       this.countBasket = this.allBasket.length
@@ -48,5 +47,9 @@ export class AdminMainComponent {
 
   showAllItem() {
     this.item = this.serviceConserv.DataArray;
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe()
   }
 }

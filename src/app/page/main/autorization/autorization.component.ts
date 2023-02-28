@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { AuthService, Users } from '../index';
 
 @Component({
@@ -7,19 +8,20 @@ import { AuthService, Users } from '../index';
   templateUrl: './autorization.component.html',
   styleUrls: ['./autorization.component.css'],
 })
-export class AutorizationComponent {
+export class AutorizationComponent implements OnInit, DoCheck, OnDestroy {
   constructor(private bilder: FormBuilder,
     private AuthService: AuthService) {}
 
   autorization: any;
   dataUsers: Users[] | undefined;
-  auth = this.AuthService.authToken
+  auth:string = this.AuthService.authToken
   error: string = ""
+  subscriptionAuthUser:Subscription | undefined;
+  subscriptionGetUser:Subscription | undefined;
 
   ngOnInit() {
     this.loadForm();
     this.getUsers();
-
   }
 
   ngDoCheck(){
@@ -31,7 +33,7 @@ export class AutorizationComponent {
   }
 
   getUsers() {
-    this.AuthService.allUsers().subscribe((users: any) => {
+    this.subscriptionGetUser = this.AuthService.allUsers().subscribe((users: any) => {
       this.dataUsers = users;
       console.log(this.dataUsers);
     });
@@ -46,7 +48,7 @@ export class AutorizationComponent {
 
   authUser(userName: string, userPass: string) {
     this.giveAllUsers()
-    this.AuthService.authUser(userName, userPass).subscribe({
+    this.subscriptionAuthUser = this.AuthService.authUser(userName, userPass).subscribe({
       next: (auth: any) => {
         this.AuthService.authToken = auth.token;
         this.whoСame(userName, userPass)
@@ -59,6 +61,11 @@ export class AutorizationComponent {
   whoСame(userName: string, userPass: string) {
     let came = this.dataUsers?.filter((user) => user.username == userName && user.password == userPass)
     this.AuthService.InfoAuth((came as Users[]))
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptionAuthUser?.unsubscribe()
+    this.subscriptionGetUser?.unsubscribe()
   }
 
 }

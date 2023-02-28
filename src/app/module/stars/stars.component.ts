@@ -1,11 +1,11 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-stars',
   templateUrl: './stars.component.html',
   styleUrls: ['./stars.component.css']
 })
-export class StarsComponent {
+export class StarsComponent implements OnInit, AfterViewInit {
 
   @Input('star') rating: number | undefined;
 
@@ -30,14 +30,12 @@ export class StarsComponent {
   Place(value: any) {
     if(!this.flag){
     this.RatingProcent = (100 * value) / 5;
-    this.Stars();
-  }
+    this.Stars();}
   }
 
   RePlace() {
     if(!this.flag){
-      this.RatingProcent = (100 * (this.rating as number)) / 5;
-    }
+      this.RatingProcent = (100 * (this.rating as number)) / 5;}
     this.Stars();
   }
 

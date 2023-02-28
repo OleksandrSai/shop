@@ -16,7 +16,6 @@ export class FilterComponent {
 
   @ViewChildren('filter') filtres: QueryList<ElementRef> | undefined;
 
-  ngOnInit() {}
 
   FindCart() {
     let array: string[] = [];

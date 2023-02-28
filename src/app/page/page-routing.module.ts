@@ -1,4 +1,4 @@
-import { inject, Inject, NgModule } from '@angular/core';
+import { inject, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthService } from './main';
 

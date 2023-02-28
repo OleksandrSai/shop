@@ -17,7 +17,6 @@ import { FormsModule }   from '@angular/forms';
         BasketRoutingModule,
         ModuleModule,
         FormsModule
-
     ]
 })
 export class BasketModule { }

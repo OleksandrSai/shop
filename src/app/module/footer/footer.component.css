@@ -1,0 +1,15 @@
+.footer{
+  width: 1200px;
+  background-color: lightskyblue;
+  height: 30px;
+  border-radius: 30px 30px 30px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  margin:15px
+}
+span{
+  color: white;
+  font-size: 13px;
+}
